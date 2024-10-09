@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1e1e1e;
+    font-family: 'Arial', sans-serif;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* 1. Underline Hover */
+.underline-hover::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    left: 50%;
+    bottom: 0;
+    transition: all 0.3s ease;
+}
+
+.underline-hover:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 2. Neon Glow Hover */
+.neon-glow-hover {
+    border: 2px solid #00ffea;
+    transition: 0.3s ease-in-out;
+}
+
+.neon-glow-hover:hover {
+    box-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea, 0 0 60px #00ffea;
+}
+
+/* 3. Smooth Transition Hover */
+.smooth-transition-hover {
+    background-color: #1a1a1a;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.smooth-transition-hover:hover {
+    background-color: #ff8c00;
+    transform: scale(1.1);
+}
+
+/* 4. Tilt Hover */
+.tilt-hover {
+    background-color: #0a0a0a;
+    transform: perspective(1000px);
+    transition: all 0.4s ease;
+}
+
+.tilt-hover:hover {
+    transform: perspective(1000px) rotateX(15deg) rotateY(15deg);
+}
+
+/* 5. Pulse Hover */
+.pulse-hover {
+    border: 2px solid #ff4b4b;
+    background-color: #111;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.pulse-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 75, 75, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.6s ease-out;
+    z-index: -1;
+}
+
+.pulse-hover:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.pulse-hover:hover {
+    color: #ff4b4b;
+}
